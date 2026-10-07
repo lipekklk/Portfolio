@@ -1,0 +1,459 @@
+  <!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felipe Passos | Desenvolvedor em Formação</title>
+  <meta name="description"
+    content="Portfólio de Felipe Passos, desenvolvedor em formação e estudante de Análise e Desenvolvimento de Sistemas." />
+  <meta name="author" content="Felipe Passos" />
+  <meta name="theme-color" content="#06070b" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Tema: aplicado antes da primeira pintura para não "piscar" o tema errado.
+       Prioridade: escolha salva > preferência do sistema > escuro. Lógica completa em js/theme.js. -->
+  <script>
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem('portfolio-theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Open Graph / redes sociais.
+         Depois de publicar, troque og:image pela URL absoluta (ex.: https://seu-dominio.com/assets/og-image.png)
+         e adicione <meta property="og:url" content="https://seu-dominio.com/" />. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Felipe Passos | Desenvolvedor em Formação" />
+  <meta property="og:description"
+    content="Portfólio de Felipe Passos, desenvolvedor em formação e estudante de Análise e Desenvolvimento de Sistemas." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <noscript>
+    <style>
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .loader {
+        display: none !important;
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <!-- Loader inicial -->
+  <div class="loader" id="loader" data-phase="show" role="status" aria-live="polite">
+    <div class="loader__inner">
+      <div class="loader__mark"><i data-icon="code" data-size="30"></i></div>
+      <div class="loader__bar"></div>
+      <span class="sr-only">Carregando portfólio…</span>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Fundo contínuo + efeitos globais -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__grid"></div>
+    <div class="bg__orb bg__orb--a"></div>
+    <div class="bg__orb bg__orb--b"></div>
+  </div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar" data-open="false">
+    <div class="container navbar__inner">
+      <a class="brand" href="#inicio" aria-label="Felipe Passos — voltar ao início">
+        <span class="brand__mark"><i data-icon="code" data-size="18"></i></span>
+        <span>Felipe<span class="brand__dim"> Passos</span></span>
+      </a>
+
+      <nav id="menu-principal" class="navbar__nav" aria-label="Principal">
+        <ul class="navbar__list">
+          <li><a class="navbar__link" href="#inicio" data-nav="inicio">Início</a></li>
+          <li><a class="navbar__link" href="#sobre" data-nav="sobre">Sobre</a></li>
+          <li><a class="navbar__link" href="#skills" data-nav="skills">Skills</a></li>
+          <li><a class="navbar__link" href="#projetos" data-nav="projetos">Projetos</a></li>
+          <li><a class="navbar__link" href="#certificados" data-nav="certificados">Certificados</a></li>
+          <li><a class="navbar__link" href="#formacao" data-nav="formacao">Formação</a></li>
+          <li><a class="navbar__link" href="#contato" data-nav="contato">Contato</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm navbar__cta" href="#contato">Entre em contato</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><i data-icon="sun" data-size="20"></i></span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><i data-icon="moon" data-size="20"></i></span>
+        </button>
+
+        <button type="button" class="navbar__toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu-principal"
+          aria-label="Abrir menu">
+          <span data-icon-slot><i data-icon="menu"></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ======================= HERO ======================= -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title" data-section>
+      <canvas class="hero__particles" id="particles" aria-hidden="true"></canvas>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="hero__greeting"><span class="pulse-dot" aria-hidden="true"></span>Olá, eu sou</p>
+          <h1 id="hero-title" class="hero__name"><span class="gradient-text">Felipe Passos</span></h1>
+          <p class="hero__role">Desenvolvedor em Formação</p>
+          <p class="hero__tagline">
+            Transformando ideias em código e evoluindo todos os dias através da tecnologia.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projetos">Ver projetos <i data-icon="arrowRight" data-size="18"></i></a>
+            <a class="btn btn--ghost" href="#contato">Entre em contato</a>
+          </div>
+
+          <div class="hero__social" data-social="icons"></div>
+        </div>
+
+        <div class="hero__visual">
+          <span class="chip-float chip-float--a" aria-hidden="true">TypeScript</span>
+          <span class="chip-float chip-float--b" aria-hidden="true">C#</span>
+          <span class="chip-float chip-float--c" aria-hidden="true">SQL</span>
+
+          <div class="terminal" role="img"
+            aria-label="Trecho de código ilustrativo descrevendo Felipe Passos como desenvolvedor em formação em ADS">
+            <div class="terminal__bar" aria-hidden="true">
+              <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+              <span class="terminal__title">perfil.ts</span>
+            </div>
+            <pre class="terminal__code"
+              aria-hidden="true"><code><span class="terminal__line" style="--i:0"><span class="tok-c">// quem eu sou, em código</span></span><span class="terminal__line" style="--i:1"><span class="tok-k">const</span> <span class="tok-p">desenvolvedor</span> <span class="tok-o">=</span> {</span><span class="terminal__line" style="--i:2">  nome<span class="tok-o">:</span> <span class="tok-s">"Felipe Passos"</span>,</span><span class="terminal__line" style="--i:3">  curso<span class="tok-o">:</span> <span class="tok-s">"Análise e Desenv. de Sistemas"</span>,</span><span class="terminal__line" style="--i:4">  status<span class="tok-o">:</span> <span class="tok-s">"Cursando"</span>,</span><span class="terminal__line" style="--i:5">  foco<span class="tok-o">:</span> [<span class="tok-s">"web"</span>, <span class="tok-s">"programação"</span>],</span><span class="terminal__line" style="--i:6">  mentalidade<span class="tok-o">:</span> <span class="tok-s">"aprendizado contínuo"</span>,</span><span class="terminal__line" style="--i:7">};</span><span class="terminal__line" style="--i:8"></span><span class="terminal__line" style="--i:9"><span class="tok-p">desenvolvedor</span>.<span class="tok-f">evoluir</span>(); <span class="tok-c">// todos os dias</span><span class="terminal__caret"></span></span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#sobre">Scroll para explorar <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <!-- ======================= SOBRE ======================= -->
+    <section id="sobre" class="section" aria-labelledby="sobre-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">01 — Sobre</span>
+          <h2 id="sobre-title" class="section__title">Sobre mim</h2>
+          <p class="section__intro">Quem eu sou, o que estudo e para onde quero chegar.</p>
+        </div>
+
+        <div class="about">
+          <div class="about__portrait reveal">
+            <span class="about__ring" aria-hidden="true"></span>
+            <span class="about__ring about__ring--2" aria-hidden="true"></span>
+            <div class="about__avatar" id="about-avatar">
+              <span class="about__initials gradient-text" aria-label="Iniciais de Felipe Passos"><img src="assets/Foto profissional.jpeg" alt="Retrato corporativo Felipe Passos"></span>
+            </div>
+          </div>
+
+          <div>
+            <div class="about__text reveal" style="--delay: 80ms">
+              <p>
+                Sou um desenvolvedor em formação apaixonado por tecnologia e programação, atualmente cursando
+                Análise e Desenvolvimento de Sistemas. Tenho interesse em desenvolvimento web, criação de aplicações,
+                resolução de problemas e aprendizado contínuo.
+              </p>
+              <p>
+                Meu objetivo é evoluir constantemente como desenvolvedor, transformar ideias em projetos funcionais
+                e construir uma carreira sólida na área de tecnologia.
+              </p>
+              <ul class="about__focus" aria-label="Áreas de interesse">
+                <li><span class="tag tag--accent">Desenvolvimento web</span></li>
+                <li><span class="tag tag--accent">Criação de aplicações</span></li>
+                <li><span class="tag tag--accent">Resolução de problemas</span></li>
+                <li><span class="tag tag--accent">Evolução profissional</span></li>
+              </ul>
+            </div>
+
+            <!-- Indicadores qualitativos (sem números inventados) -->
+            <ul class="stats">
+              <li class="stat glass reveal" style="--delay: 120ms">
+                <span class="stat__icon"><i data-icon="graduation"></i></span>
+                <div>
+                  <p class="stat__label">Estudante de ADS</p>
+                  <p class="stat__hint">Análise e Desenvolvimento de Sistemas</p>
+                </div>
+              </li>
+              <li class="stat glass reveal" style="--delay: 200ms">
+                <span class="stat__icon"><i data-icon="code"></i></span>
+                <div>
+                  <p class="stat__label">Foco em programação</p>
+                  <p class="stat__hint">Lógica, código limpo e boas práticas</p>
+                </div>
+              </li>
+              <li class="stat glass reveal" style="--delay: 280ms">
+                <span class="stat__icon"><i data-icon="sprout"></i></span>
+                <div>
+                  <p class="stat__label">Aprendizado contínuo</p>
+                  <p class="stat__hint">Evoluindo um pouco a cada dia</p>
+                </div>
+              </li>
+              <li class="stat glass reveal" style="--delay: 360ms">
+                <span class="stat__icon"><i data-icon="rocket"></i></span>
+                <div>
+                  <p class="stat__label">Projetos em desenvolvimento</p>
+                  <p class="stat__hint">Ideias saindo do papel</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= SKILLS ======================= -->
+    <section id="skills" class="section" aria-labelledby="skills-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">02 — Skills</span>
+          <h2 id="skills-title" class="section__title">Stack &amp; Tecnologias</h2>
+          <p class="section__intro">
+            Tecnologias e conhecimentos organizados por área. Sem níveis inventados: apenas o que eu realmente estudo e
+            uso.
+          </p>
+        </div>
+        <div class="skills__legend reveal" id="skills-legend"></div>
+        <div class="skills__grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= PROJETOS ======================= -->
+    <section id="projetos" class="section" aria-labelledby="projetos-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">03 — Projetos</span>
+          <h2 id="projetos-title" class="section__title">Projetos</h2>
+          <p class="section__intro">
+            Projetos pessoais e acadêmicos desenvolvidos durante meu aprendizado.
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="filters" id="project-filters" role="group" aria-label="Filtrar projetos por categoria"></div>
+        </div>
+        <div id="projects-wrap" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= CERTIFICADOS ======================= -->
+    <section id="certificados" class="section" aria-labelledby="certificados-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">04 — Certificados</span>
+          <h2 id="certificados-title" class="section__title">Certificados &amp; Cursos</h2>
+          <p class="section__intro">
+            Cursos e certificações que acompanham a minha evolução.
+          </p>
+        </div>
+        <div id="certs-wrap"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= FORMAÇÃO ======================= -->
+    <section id="formacao" class="section" aria-labelledby="formacao-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">05 — Formação</span>
+          <h2 id="formacao-title" class="section__title">Formação</h2>
+          <p class="section__intro">Minha base acadêmica e o caminho de estudos complementares.</p>
+        </div>
+
+        <div class="formation">
+          <div class="degree glass reveal">
+            <span class="degree__icon"><i data-icon="graduation" data-size="26"></i></span>
+            <h3 class="degree__title">Análise e Desenvolvimento de Sistemas</h3>
+            <div class="degree__meta">
+              <span class="tag tag--accent">Cursando</span>
+              <span class="tag">Graduação tecnológica</span>
+            </div>
+            <p class="degree__text">
+              Formação voltada a programação, banco de dados, análise de sistemas e desenvolvimento de aplicações,
+              base para a minha atuação como desenvolvedor.
+            </p>
+          </div>
+          <div id="education-timeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= JORNADA ======================= -->
+    <section id="jornada" class="section" aria-labelledby="jornada-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">06 — Jornada</span>
+          <h2 id="jornada-title" class="section__title">Minha Jornada</h2>
+          <p class="section__intro">
+            Onde estou e para onde quero ir.
+          </p>
+        </div>
+        <div style="max-width: 760px" id="journey-timeline"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= GITHUB ======================= -->
+    <section id="github" class="section" aria-labelledby="github-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">07 — GitHub</span>
+          <h2 id="github-title" class="section__title">GitHub</h2>
+          <p class="section__intro">Dados puxados diretamente da API pública do GitHub. Nada de números de enfeite.</p>
+        </div>
+        <div class="gh">
+          <div id="github-content"></div>
+          <div class="gh__footer" id="github-cta"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ======================= CONTATO ======================= -->
+    <section id="contato" class="section" aria-labelledby="contato-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">08 — Contato</span>
+          <h2 id="contato-title" class="section__title">Vamos conversar?</h2>
+        </div>
+
+        <div class="contact glass reveal">
+          <div class="contact__info">
+            <p class="contact__intro">
+              Estou sempre aberto a novas oportunidades, projetos e conexões na área de tecnologia.
+            </p>
+            <div data-social="contact"></div>
+          </div>
+
+          <form class="form" id="contact-form" novalidate aria-label="Formulário de contato">
+            <div class="form__row">
+              <div class="field" data-field="nome">
+                <label for="contato-nome">Nome</label>
+                <input id="contato-nome" name="nome" autocomplete="name" placeholder="Seu nome" required />
+              </div>
+              <div class="field" data-field="email">
+                <label for="contato-email">E-mail</label>
+                <input id="contato-email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com"
+                  required />
+              </div>
+            </div>
+            <div class="field" data-field="assunto">
+              <label for="contato-assunto">Assunto</label>
+              <input id="contato-assunto" name="assunto" placeholder="Sobre o que vamos conversar?" required />
+            </div>
+            <div class="field" data-field="mensagem">
+              <label for="contato-mensagem">Mensagem</label>
+              <textarea id="contato-mensagem" name="mensagem" placeholder="Escreva sua mensagem…" required></textarea>
+            </div>
+
+            <!-- Honeypot anti-spam: invisível para pessoas -->
+            <div class="form__honeypot" aria-hidden="true">
+              <label>Não preencha este campo <input type="text" name="website" tabindex="-1"
+                  autocomplete="off" /></label>
+            </div>
+
+            <div class="form__submit">
+              <button type="submit" class="btn btn--primary" id="contact-submit">
+                <span data-label>Enviar mensagem</span> <i data-icon="send" data-size="18"></i>
+              </button>
+              <p class="form__status" id="contact-status" data-type="idle" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand" href="#inicio" aria-label="Felipe Passos — voltar ao início">
+            <span class="brand__mark"><i data-icon="code" data-size="18"></i></span>
+            <span>Felipe Passos</span>
+          </a>
+          <p>Desenvolvedor em formação</p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Rodapé">
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certificados">Certificados</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div data-social="icons"></div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>Desenvolvido por Felipe Passos</span>
+        <span>© <span id="year">2026</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="to-top" href="#inicio" aria-label="Voltar ao topo"><i data-icon="arrowUp"></i></a>
+
+  <!-- Dados (edite estes arquivos) -->
+  <script src="js/data/config.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/projects.js"></script>
+  <script src="js/data/certificates.js"></script>
+  <script src="js/data/education.js"></script>
+  <script src="js/data/journey.js"></script>
+  <!-- Lógica -->
+  <script src="js/utils.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/github.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
