@@ -312,6 +312,23 @@
   transform: rotate(90deg) scale(0.4);
 }
 
+/* Telas médias (tablet deitado / notebook pequeno): os 8 links + CTA não cabem.
+   O CTA repete o link "Contato", então sai só nessa faixa; links ficam um pouco mais compactos. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .navbar__cta {
+    display: none;
+  }
+  .navbar__link {
+    padding-inline: 10px;
+  }
+  .navbar__inner {
+    gap: 12px;
+  }
+}
+.brand {
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .navbar__toggle {
     display: grid;
@@ -809,6 +826,29 @@ a.social__link:hover {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+/* Telefone no footer (preenchido pelo render.js em [data-phone]) */
+.footer__contact {
+  margin-top: 12px;
+}
+.footer__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.25s var(--ease);
+}
+.footer__phone svg {
+  color: var(--accent-2);
+}
+a.footer__phone:hover {
+  color: var(--text);
+}
+.footer__phone[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .footer__nav ul {
   display: flex;

@@ -7,6 +7,7 @@
     P.renderAll(); // gera seções a partir de js/data/*
     P.initGithub(); // seção GitHub (assíncrona)
     P.initContact();
+    P.initResume(); // seção Currículos: cards + modal com o PDF
     P.hydrateIcons(); // troca <i data-icon> por SVG
     P.initTheme(); // botão claro/escuro + persistência (o <head> já aplicou o tema inicial)
     document.getElementById('year').textContent = new Date().getFullYear();

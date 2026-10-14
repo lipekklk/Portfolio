@@ -5,6 +5,23 @@
   const { esc, icon, $, $$ } = P;
 
   /* ---------- Links sociais ---------- */
+
+  /**
+   * Link do WhatsApp (https://wa.me/<DDI><DDD><número>) a partir de config.phone.
+   * Remove espaços/parênteses/traços e acrescenta o código do país quando faltar.
+   * Placeholder sem dígitos suficientes => sem link.
+   */
+  function whatsappHref(phone) {
+    // Só dígitos, sem zeros iniciais (cobre '013 ...' e o prefixo internacional '00 55 ...').
+    let digits = String(phone || '').replace(/\D/g, '').replace(/^0+/, '');
+    if (digits.length < 10) return '';
+    const country = String(D.config.whatsappCountryCode || '55').replace(/\D/g, '');
+    // Até 11 dígitos = número nacional (DDD + número) → adiciona o DDI. Mais que isso = já veio com DDI.
+    if (digits.length <= 11) digits = country + digits;
+    const message = String(D.config.whatsappMessage || '').trim();
+    return 'https://wa.me/' + digits + (message ? '?text=' + encodeURIComponent(message) : '');
+  }
+
   P.social = [
     {
       id: 'github',
@@ -26,6 +43,14 @@
       icon: 'mail',
       href: D.config.email ? 'mailto:' + D.config.email : '',
       display: D.config.email || 'E-mail (a configurar)',
+    },
+    {
+      id: 'phone',
+      label: 'WhatsApp',
+      icon: 'whatsapp',
+      href: whatsappHref(D.config.phone),
+      display: whatsappHref(D.config.phone) ? D.config.phone : (D.config.phone || '[MEU NÚMERO]') + ' (a configurar)',
+      contactOnly: true, // aparece na lista de contato e no footer, não nos ícones sociais
     },
   ];
 
@@ -53,6 +78,7 @@
       container.innerHTML =
         '<ul class="social" aria-label="Links profissionais">' +
         P.social
+          .filter((item) => !item.contactOnly)
           .map((item) =>
             item.href
               ? '<li><a class="social__link" href="' + esc(item.href) + '"' + external(item) +
@@ -63,6 +89,18 @@
           )
           .join('') +
         '</ul>';
+    });
+  }
+
+  /* ---------- WhatsApp no footer ([data-phone]) ---------- */
+  function renderPhone() {
+    const phone = P.social.find((item) => item.id === 'phone');
+    $$('[data-phone]').forEach((el) => {
+      el.innerHTML = phone.href
+        ? '<a class="footer__phone" href="' + esc(phone.href) + '" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp: ' +
+          esc(phone.display) + ' (abre em nova aba)">' + icon('whatsapp', 16) + '<span>' + esc(phone.display) + '</span></a>'
+        : '<span class="footer__phone" aria-disabled="true" title="Configure phone em js/data/config.js">' +
+          icon('whatsapp', 16) + '<span>' + esc(phone.display) + '</span></span>';
     });
   }
 
@@ -245,9 +283,7 @@
   }
 
   function openCertificate(cert, opener) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML =
+    P.openModal(
       '<div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title">' +
       '<div class="modal__head"><div><h3 id="cert-modal-title" class="modal__title">' + esc(cert.nome) + '</h3>' +
       '<p class="modal__sub">' + esc(cert.instituicao) + (cert.data ? ' · ' + esc(cert.data) : '') + '</p></div>' +
@@ -256,32 +292,9 @@
       (cert.link
         ? '<div class="modal__foot"><a class="btn btn--ghost btn--sm" href="' + esc(cert.link) + '" target="_blank" rel="noopener noreferrer">Abrir original ' + icon('external', 16) + '</a></div>'
         : '') +
-      '</div>';
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    document.body.appendChild(modal);
-
-    const focusable = () => $$('a[href], button:not([disabled])', modal);
-    function close() {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = previousOverflow;
-      modal.remove();
-      if (opener) opener.focus();
-    }
-    function onKey(event) {
-      if (event.key === 'Escape') return close();
-      if (event.key !== 'Tab') return;
-      const items = focusable();
-      const first = items[0];
-      const last = items[items.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-    }
-    modal.addEventListener('mousedown', (event) => { if (event.target === modal) close(); });
-    $('.modal__close', modal).addEventListener('click', close);
-    document.addEventListener('keydown', onKey);
-    focusable()[0].focus();
+      '</div>',
+      { opener },
+    );
   }
 
   function renderCertificates() {
@@ -352,6 +365,7 @@
 
   P.renderAll = function () {
     renderSocial();
+    renderPhone();
     renderAvatar();
     renderSkills();
     renderProjects();

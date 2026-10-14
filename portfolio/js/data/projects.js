@@ -36,11 +36,22 @@ window.PORTFOLIO_DATA.projects = [
     imagem: 'assets/images/projects/Portfolio.png',
     tecnologias: ['HTML', 'CSS', 'JavaScript'],
     categorias: ['Frontend'],
-    // linkProjeto: 'Curriculofelipepassos.netlify.app',
-    linkGithub: '',
+    linkProjeto: 'https://curriculofelipepassos.netlify.app',
+    linkGithub: 'https://github.com/lipekklk/Portfolio',
     placeholder: false,
   },
-
+  {
+    id: 'jbc',
+    titulo: 'JHEN Beauty Care',
+    descricao:
+      'Site de agendamento desenvolvido para uma empresa de estética e beleza.',
+    imagem: 'assets/images/projects/JhenBeautyCare.png',
+    tecnologias: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'SQL', 'SVG', 'JSON', 'Markdown'],
+    categorias: ['Full Stack'],
+    linkProjeto: 'https://jhenbeautycare.netlify.app',
+    linkGithub: 'https://github.com/lipekklk/jhen-beauty-care',
+    placeholder: false,
+  },
   {
     id: 'exemplo-frontend',
     titulo: 'Em desenvolvimento...',

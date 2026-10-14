@@ -64,7 +64,7 @@
     window.addEventListener('resize', () => { if (window.innerWidth > 900 && isOpen()) setOpen(false); });
 
     // Qual item da navbar fica ativo em cada seção (Jornada e GitHub herdam o vizinho).
-    const navFor = { inicio: 'inicio', sobre: 'sobre', skills: 'skills', projetos: 'projetos', certificados: 'certificados', formacao: 'formacao', jornada: 'formacao', github: 'contato', contato: 'contato' };
+    const navFor = { inicio: 'inicio', sobre: 'sobre', skills: 'skills', projetos: 'projetos', certificados: 'certificados', formacao: 'formacao', jornada: 'formacao', curriculo: 'curriculo', github: 'contato', contato: 'contato' };
     const links = $$('.navbar__link', navbar);
     function setActive(sectionId) {
       const target = navFor[sectionId];

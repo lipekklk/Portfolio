@@ -96,6 +96,7 @@
           <li><a class="navbar__link" href="#projetos" data-nav="projetos">Projetos</a></li>
           <li><a class="navbar__link" href="#certificados" data-nav="certificados">Certificados</a></li>
           <li><a class="navbar__link" href="#formacao" data-nav="formacao">Formação</a></li>
+          <li><a class="navbar__link" href="#curriculo" data-nav="curriculo">Currículos</a></li>
           <li><a class="navbar__link" href="#contato" data-nav="contato">Contato</a></li>
         </ul>
         <a class="btn btn--primary btn--sm navbar__cta" href="#contato">Entre em contato</a>
@@ -330,16 +331,33 @@
 
     <div class="divider" aria-hidden="true"></div>
 
+    <!-- ======================= CURRÍCULOS ======================= -->
+    <!-- Cards gerados a partir de js/data/resumes.js; o PDF só abre no modal (js/resume.js). -->
+    <section id="curriculo" class="section" aria-labelledby="curriculo-title" data-section>
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">07 — Currículos</span>
+          <h2 id="curriculo-title" class="section__title">Currículos</h2>
+          <p class="section__intro">
+            Confira meus currículos profissionais e escolha a versão mais adequada para a vaga.
+          </p>
+        </div>
+        <div id="resumes-wrap"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
     <!-- ======================= GITHUB ======================= -->
     <section id="github" class="section" aria-labelledby="github-title" data-section>
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__eyebrow">07 — GitHub</span>
+          <span class="section__eyebrow">08 — GitHub</span>
           <h2 id="github-title" class="section__title">GitHub</h2>
           <p class="section__intro">Dados puxados diretamente da API pública do GitHub. Nada de números de enfeite.</p>
         </div>
         <div class="gh">
-          <div id="github-content"></div>
+          <div class="gh__content" id="github-content"></div>
           <div class="gh__footer" id="github-cta"></div>
         </div>
       </div>
@@ -351,7 +369,7 @@
     <section id="contato" class="section" aria-labelledby="contato-title" data-section>
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__eyebrow">08 — Contato</span>
+          <span class="section__eyebrow">09 — Contato</span>
           <h2 id="contato-title" class="section__title">Vamos conversar?</h2>
         </div>
 
@@ -412,6 +430,7 @@
             <span>Felipe Passos</span>
           </a>
           <p>Desenvolvedor em formação</p>
+          <div class="footer__contact" data-phone></div>
         </div>
 
         <nav class="footer__nav" aria-label="Rodapé">
@@ -421,6 +440,7 @@
             <li><a href="#projetos">Projetos</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#certificados">Certificados</a></li>
+            <li><a href="#curriculo">Currículos</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
@@ -444,6 +464,7 @@
   <script src="js/data/certificates.js"></script>
   <script src="js/data/education.js"></script>
   <script src="js/data/journey.js"></script>
+  <script src="js/data/resumes.js"></script>
   <!-- Lógica -->
   <script src="js/utils.js"></script>
   <script src="js/icons.js"></script>
@@ -451,6 +472,7 @@
   <script src="js/render.js"></script>
   <script src="js/github.js"></script>
   <script src="js/contact.js"></script>
+  <script src="js/resume.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/particles.js"></script>
   <script src="js/main.js"></script>

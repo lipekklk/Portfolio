@@ -7,7 +7,8 @@ Site de página única em **HTML, CSS e JavaScript puros**. Sem npm, sem build, 
 
 | Quero mudar…                         | Arquivo                      |
 | ------------------------------------ | ---------------------------- |
-| GitHub, e-mail, foto, formulário     | `js/data/config.js`          |
+| GitHub, e-mail, WhatsApp, formulário | `js/data/config.js`          |
+| Currículos (vários PDFs)             | `js/data/resumes.js` · arquivos em `assets/curriculo/` |
 | Textos do hero e do "Sobre mim"      | `index.html`                 |
 | Projetos                             | `js/data/projects.js`        |
 | Certificados                         | `js/data/certificates.js`    |
@@ -56,8 +57,8 @@ redefine os tokens em `:root[data-theme='light']`. Lógica em `js/theme.js` + sc
 index.html
 css/   global.css (tokens, reset, botões) · layout.css (navbar, hero, footer) · sections.css (seções)
 js/
-  data/   config, skills, projects, certificates, education, journey   ← conteúdo editável
-  utils.js · icons.js · theme.js · render.js · github.js · contact.js · ui.js · particles.js · main.js
+  data/   config, skills, projects, certificates, education, journey, resumes   ← conteúdo editável
+  utils.js · icons.js · theme.js · render.js · resume.js · github.js · contact.js · ui.js · particles.js · main.js
 assets/   favicon.svg, og-image.png, foto
   images/projects/   imagens dos cards de projeto
 ```
