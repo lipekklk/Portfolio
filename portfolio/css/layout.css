@@ -335,16 +335,22 @@
   }
   .navbar__nav {
     position: fixed;
-    inset: 62px 0 0 0;
+    /* Altura explícita (não `bottom: 0`): enquanto a navbar tem backdrop-filter — inclusive durante a
+       transição dele ao abrir/fechar — ela vira a referência do position:fixed e `bottom: 0` encolhia
+       o painel para ~68px no meio da animação. Com top + height o tamanho é o mesmo nos dois casos. */
+    top: 62px;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 62px);
+    height: calc(100dvh - 62px); /* acompanha a barra de endereço do celular */
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 24px;
     padding: 28px var(--gutter) 40px;
-    background: var(--nav-bg-solid);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    background: var(--nav-bg-solid); /* quase opaco: sem blur aqui, que pesava a animação em tela cheia */
     overflow-y: auto;
+    overscroll-behavior: contain; /* rolar a lista não rola a página por trás */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -358,9 +364,10 @@
     visibility: visible;
     transform: none;
   }
-  /* Correção: backdrop-filter no pai transforma-o no "containing block" do painel fixo,
-     que ficava com ~68px de altura. Com o menu aberto, a barra usa fundo sólido sem filtro. */
-  .navbar[data-open='true'] {
+  /* Menu aberto: barra com fundo sólido e sem desfoque (o painel opaco já cobre a página).
+     `:root[data-scrolled]` supera a especificidade da regra de rolagem, que reaplicava o filtro. */
+  :root .navbar[data-open='true'],
+  :root[data-scrolled] .navbar[data-open='true'] {
     background: var(--nav-bg-solid);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;

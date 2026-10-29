@@ -891,6 +891,12 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+@media (max-width: 359px) {
+  /* Celulares bem estreitos: os botões quebram linha em vez de empurrar a página para os lados */
+  .resume-card__actions {
+    flex-wrap: wrap;
+  }
+}
 
 /* Modal do currículo: herda .modal/.modal__panel e ocupa quase toda a altura para o PDF */
 .resume-modal {
