@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://curriculofelipepassos.netlify.app/sitemap.xml

@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felipe Passos | Desenvolvedor em Formação</title>
+    <meta
+      name="description"
+      content="Portfólio de Felipe Passos, desenvolvedor em formação e estudante de Análise e Desenvolvimento de Sistemas."
+    />
+    <meta name="author" content="Felipe Passos" />
+    <meta name="theme-color" content="#2a33f5" />
+    <link rel="canonical" href="https://curriculofelipepassos.netlify.app/" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Felipe Passos | Desenvolvedor em Formação" />
+    <meta
+      property="og:description"
+      content="Portfólio de Felipe Passos, desenvolvedor em formação e estudante de Análise e Desenvolvimento de Sistemas."
+    />
+    <meta property="og:url" content="https://curriculofelipepassos.netlify.app/" />
+    <meta property="og:image" content="https://curriculofelipepassos.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Felipe Passos",
+        "jobTitle": "Desenvolvedor em Formação",
+        "url": "https://curriculofelipepassos.netlify.app/"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+
+    <!--
+      Bibliotecas de animação (GSAP, ScrollTrigger e Lenis) via CDN.
+      Se a CDN estiver fora do ar, o site continua funcionando, só sem animação.
+      Para funcionar offline, baixe os 3 arquivos para a pasta js/vendor/ e troque os endereços.
+    -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+
+    <!-- Código do site (scripts comuns, sem módulos: funcionam até abrindo o arquivo direto no navegador). -->
+    <script defer src="js/config.js"></script>
+    <script defer src="js/lib.js"></script>
+    <script defer src="js/header.js"></script>
+    <script defer src="js/motion.js"></script>
+    <script defer src="js/github.js"></script>
+    <script defer src="js/contact.js"></script>
+    <script defer src="js/viewer.js"></script>
+    <script defer src="js/projects.js"></script>
+    <script defer src="js/main.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ============ Cabeçalho ============ -->
+    <header class="hdr" id="topo-header">
+      <a class="hdr__logo" href="#inicio" aria-label="Felipe Passos, ir para o início">FP</a>
+
+      <!-- O menu mobile e o menu do rodapé são copiados daqui pelo js/header.js -->
+      <nav class="hdr__nav" aria-label="Navegação principal">
+        <ul id="nav-principal">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#certificados">Certificados</a></li>
+          <li><a href="#formacao">Formação</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a href="#curriculo">Currículos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="hdr__cta">
+        <span class="btn-magnet"><a class="btn btn--solid btn--sm btn--on-glass" href="#contato">Entre em contato</a></span>
+      </div>
+
+      <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
+        <span class="sr-only">Abrir menu</span>
+        <span class="hdr__bars" aria-hidden="true"></span>
+      </button>
+
+      <div id="menu-mobile" class="menu" data-lenis-prevent>
+        <ul></ul>
+      </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <!-- ============ Início ============ -->
+      <section id="inicio" class="section section--first hero" data-theme="blue" data-depth aria-label="Início">
+        <div class="hero__bg" aria-hidden="true">
+          <span class="hero__glow hero__glow--a" data-speed="0.4"></span>
+          <span class="hero__glow hero__glow--b" data-speed="0.8"></span>
+          <span class="hero__dots"></span>
+        </div>
+
+        <div class="section__inner container hero__inner">
+          <!-- O js/motion.js separa cada letra para o efeito de peso variável. -->
+          <h1 class="vp hero__name" aria-label="Felipe Passos">
+            <span class="vp__line" data-vp-line>Felipe</span>
+            <span class="vp__line" data-vp-line>Passos</span>
+          </h1>
+
+          <div class="hero__row">
+            <div class="hero__copy">
+              <p class="hero__role hero__fade">Desenvolvedor em Formação</p>
+              <p class="hero__intro hero__fade">
+                Transformando ideias em código e evoluindo todos os dias através da tecnologia.
+              </p>
+
+              <div class="hero__cta hero__fade">
+                <span class="btn-magnet"><a class="btn btn--solid btn--md" href="#projetos">Ver projetos</a></span>
+                <span class="btn-magnet"><a class="btn btn--ghost btn--md" href="#contato">Entre em contato</a></span>
+              </div>
+            </div>
+
+            <div class="hero__card">
+              <figure class="code" aria-label="Trecho de código do arquivo perfil.ts">
+                <figcaption class="code__tab">perfil.ts</figcaption>
+                <pre class="code__body"><code><span class="code__line tok-comment">// quem eu sou, em código</span><span class="code__line"><span class="tok-kw">const</span> <span class="tok-var">desenvolvedor</span> <span class="tok-punc">=</span> <span class="tok-punc">{</span></span><span class="code__line">  <span class="tok-key">nome</span><span class="tok-punc">:</span> <span class="tok-str">"Felipe Passos"</span><span class="tok-punc">,</span></span><span class="code__line">  <span class="tok-key">curso</span><span class="tok-punc">:</span> <span class="tok-str">"Análise e Desenv. de Sistemas"</span><span class="tok-punc">,</span></span><span class="code__line">  <span class="tok-key">status</span><span class="tok-punc">:</span> <span class="tok-str">"Cursando"</span><span class="tok-punc">,</span></span><span class="code__line">  <span class="tok-key">foco</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"web"</span><span class="tok-punc">, </span><span class="tok-str">"programação"</span><span class="tok-punc">]</span><span class="tok-punc">,</span></span><span class="code__line">  <span class="tok-key">mentalidade</span><span class="tok-punc">:</span> <span class="tok-str">"aprendizado contínuo"</span><span class="tok-punc">,</span></span><span class="code__line"><span class="tok-punc">};</span></span><span class="code__line"> </span><span class="code__line"><span class="tok-var">desenvolvedor</span><span class="tok-punc">.</span><span class="tok-fn">evoluir</span><span class="tok-punc">();</span> <span class="tok-comment">// todos os dias</span><span class="code__caret" aria-hidden="true"></span></span></code></pre>
+              </figure>
+            </div>
+          </div>
+
+          <a class="hero__scroll hero__fade" href="#sobre">
+            <span class="hero__scroll-line" aria-hidden="true"></span>
+            Scroll para explorar
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ Sobre ============ -->
+      <section id="sobre" class="section" data-theme="ice" data-depth aria-labelledby="sobre-titulo">
+        <div class="section__inner container">
+          <div class="about">
+            <div class="about__photo">
+              <div class="portrait" data-portrait>
+                <div class="portrait__frame">
+                  <img
+                    class="portrait__img"
+                    src="assets/foto-profissional.jpeg"
+                    alt="Retrato corporativo Felipe Passos"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="about__text">
+              <h2 id="sobre-titulo" class="section-head__title" data-split>Sobre mim</h2>
+              <!-- TODO: troque pela sua biografia original, se for diferente. -->
+              <p class="scroll-words about__bio" data-scrub-words>
+                Sou desenvolvedor em formação, cursando Análise e Desenvolvimento de Sistemas, com interesse em
+                desenvolvimento web, criação de aplicações, resolução de problemas e aprendizado contínuo. Meu objetivo
+                é evoluir, transformar ideias em projetos funcionais e construir minha carreira na área.
+              </p>
+
+              <div class="about__lists">
+                <div>
+                  <h3 class="about__h3">Áreas de interesse</h3>
+                  <span class="about__rule" data-line></span>
+                  <ul class="about__list">
+                    <li>Desenvolvimento web</li>
+                    <li>Criação de aplicações</li>
+                    <li>Resolução de problemas</li>
+                    <li>Evolução profissional</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="about__h3">Destaques</h3>
+                  <span class="about__rule" data-line></span>
+                  <ul class="about__list">
+                    <li>Estudante de Análise e Desenvolvimento de Sistemas</li>
+                    <li>Foco em programação: lógica, código limpo e boas práticas</li>
+                    <li>Aprendizado contínuo</li>
+                    <li>Projetos em desenvolvimento</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="about__h3">Competências</h3>
+                  <span class="about__rule" data-line></span>
+                  <ul class="about__list">
+                    <li>Resolução de problemas</li>
+                    <li>Suporte técnico ao usuário</li>
+                    <li>Organização</li>
+                    <li>Trabalho em equipe</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="about__h3">Idiomas</h3>
+                  <span class="about__rule" data-line></span>
+                  <ul class="about__list">
+                    <li>Inglês: avançado</li>
+                    <li>Português: nativo</li>
+                    <li>Espanhol: básico</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Skills ============ -->
+      <section id="skills" class="section" data-theme="ink" data-depth aria-labelledby="skills-titulo">
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="skills-titulo" class="section-head__title" data-split>Stack &amp; Tecnologias</h2>
+            <!-- TODO: texto de apoio aproximado; troque pelo original. -->
+            <p class="section-head__lead">Organizadas por área, sem níveis de proficiência: só o que eu estudo e uso.</p>
+          </header>
+
+          <div class="stack">
+            <div class="stack__group">
+              <span class="stack__rule" data-line></span>
+              <div class="stack__row">
+                <h3 class="stack__area">Linguagens</h3>
+                <ul class="stack__chips">
+                  <li class="chip">C#</li>
+                  <li class="chip">Python</li>
+                  <li class="chip">JavaScript</li>
+                  <li class="chip">TypeScript</li>
+                  <li class="chip">HTML5</li>
+                  <li class="chip">CSS3</li>
+                  <li class="chip">PHP</li>
+                  <li class="chip">Java</li>
+                  <li class="chip">React Native</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stack__group">
+              <span class="stack__rule" data-line></span>
+              <div class="stack__row">
+                <h3 class="stack__area">Back-end e APIs</h3>
+                <ul class="stack__chips">
+                  <li class="chip">Node.js</li>
+                  <li class="chip">APIs REST</li>
+                  <li class="chip">Integração de APIs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stack__group">
+              <span class="stack__rule" data-line></span>
+              <div class="stack__row">
+                <h3 class="stack__area">Bancos de dados</h3>
+                <ul class="stack__chips">
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">MySQL</li>
+                  <li class="chip">Oracle</li>
+                  <li class="chip">Modelagem de banco de dados</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stack__group">
+              <span class="stack__rule" data-line></span>
+              <div class="stack__row">
+                <h3 class="stack__area">Versionamento</h3>
+                <ul class="stack__chips">
+                  <li class="chip">Git</li>
+                  <li class="chip">GitHub</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stack__group">
+              <span class="stack__rule" data-line></span>
+              <div class="stack__row">
+                <h3 class="stack__area">Escritório</h3>
+                <ul class="stack__chips">
+                  <li class="chip">Excel</li>
+                  <li class="chip">Word</li>
+                  <li class="chip">PowerPoint</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stack__group">
+              <span class="stack__rule" data-line></span>
+              <div class="stack__row">
+                <h3 class="stack__area">Infraestrutura e suporte</h3>
+                <ul class="stack__chips">
+                  <li class="chip">Suporte técnico ao usuário</li>
+                  <li class="chip">Instalação e configuração de softwares</li>
+                  <li class="chip">Manutenção de hardware e software</li>
+                  <li class="chip">Configuração básica de redes</li>
+                  <li class="chip">Diagnóstico de problemas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Projetos ============ -->
+      <!--
+        Os botões "Ver projeto" / "Ver código" e as tecnologias de cada projeto são preenchidos
+        automaticamente a partir de js/config.js (campo "projetos"). Não precisa mexer aqui.
+      -->
+      <section id="projetos" class="section" data-theme="ice" data-depth aria-labelledby="projetos-titulo">
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="projetos-titulo" class="section-head__title" data-split>Projetos</h2>
+            <p class="section-head__lead">Projetos pessoais e acadêmicos desenvolvidos durante meu aprendizado.</p>
+          </header>
+
+          <ul class="projects">
+            <li class="project" data-project="jhen-beauty-care">
+              <span class="project__rule" data-line></span>
+              <div class="project__grid">
+                <div class="project__head"><h3 class="project__title">Jhen Beauty Care</h3></div>
+                <div class="project__body">
+                  <p class="project__desc">
+                    Site de design de sobrancelhas e brow lamination, com escolha de procedimento, horários livres e
+                    agenda online com confirmação na hora.
+                  </p>
+                </div>
+                <div class="project__media">
+                  <img
+                    src="assets/projetos/jhen-beauty-care.webp"
+                    alt="Página inicial do site Jhen Beauty Care"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li class="project" data-project="quiz-de-biologia">
+              <span class="project__rule" data-line></span>
+              <div class="project__grid">
+                <div class="project__head"><h3 class="project__title">Quiz de Biologia</h3></div>
+                <div class="project__body">
+                  <p class="project__desc">Quiz feito para um trabalho de biologia do 2º ano do Ensino Médio.</p>
+                </div>
+                <div class="project__media">
+                  <img
+                    src="assets/projetos/quiz-de-biologia.webp"
+                    alt="Página inicial do Quiz de Biologia"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li class="project" data-project="treino-medicina">
+              <span class="project__rule" data-line></span>
+              <div class="project__grid">
+                <!-- TODO: título derivado do nome do arquivo; confirme. -->
+                <div class="project__head"><h3 class="project__title">Treino Medicina</h3></div>
+                <div class="project__body">
+                  <p class="project__desc">
+                    Site de medicina ocupacional para empresas, com soluções, guia de SST, página institucional e área
+                    do cliente.
+                  </p>
+                </div>
+                <div class="project__media">
+                  <img
+                    src="assets/projetos/treino-medicina.webp"
+                    alt="Página inicial do site de medicina ocupacional"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li class="project" data-project="portfolio">
+              <span class="project__rule" data-line></span>
+              <div class="project__grid">
+                <div class="project__head"><h3 class="project__title">Portfólio</h3></div>
+                <div class="project__body">
+                  <p class="project__desc">
+                    Portfólio pessoal com apresentação, skills, projetos, certificados e formação.
+                  </p>
+                </div>
+                <div class="project__media">
+                  <img
+                    src="assets/projetos/portfolio.webp"
+                    alt="Página inicial do portfólio de Felipe Passos"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ GitHub (aparece sozinha quando githubUser estiver preenchido em js/config.js) ============ -->
+      <section id="github" class="section" data-theme="ink" data-depth aria-labelledby="github-titulo" hidden>
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="github-titulo" class="section-head__title" data-split>GitHub</h2>
+            <p class="section-head__lead">Dados obtidos direto da API pública do GitHub.</p>
+          </header>
+          <div id="github-conteudo" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ============ Certificados ============ -->
+      <section id="certificados" class="section" data-theme="ink" data-depth aria-labelledby="certificados-titulo">
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="certificados-titulo" class="section-head__title" data-split>Certificados &amp; Cursos</h2>
+            <p class="section-head__lead">Cursos e certificações.</p>
+          </header>
+
+          <ul class="certs">
+            <li class="cert">
+              <span class="cert__rule" data-line></span>
+              <div class="cert__grid">
+                <p class="cert__date">5 a 9 de outubro de 2026</p>
+                <div>
+                  <h3 class="cert__title">Semana de TI 2026</h3>
+                  <p class="cert__issuer">Universidade Santa Cecília, 6h50</p>
+                </div>
+                <div class="cert__actions">
+                  <a
+                    class="cert__link"
+                    href="assets/certificados/certificado-semana-de-ti-2026.jpg"
+                    data-viewer="image"
+                    data-title="Certificado de participação: Semana de TI 2026 (Unisanta)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Ver certificado</a
+                  >
+                  <a class="cert__link cert__link--quiet" href="assets/certificados/certificado-semana-de-ti-2026.pdf" download
+                    >Baixar PDF</a
+                  >
+                  <a
+                    class="cert__link cert__link--quiet"
+                    href="https://eventics.com.br/validar/A037395DE443"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Verificar autenticidade</a
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="cert">
+              <span class="cert__rule" data-line></span>
+              <div class="cert__grid">
+                <p class="cert__date">10 a 12 de dezembro de 2025</p>
+                <div>
+                  <h3 class="cert__title">LGPD: a sua empresa está preparada?</h3>
+                  <p class="cert__issuer">Sebrae, 2 horas</p>
+                </div>
+                <div class="cert__actions">
+                  <a
+                    class="cert__link"
+                    href="assets/certificados/certificado-sebrae-lgpd.jpg"
+                    data-viewer="image"
+                    data-title="LGPD: a sua empresa está preparada? (Sebrae)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Ver certificado</a
+                  >
+                  <a class="cert__link cert__link--quiet" href="https://certificados.sebrae.com.br" target="_blank" rel="noopener noreferrer"
+                    >Verificar autenticidade</a
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="cert">
+              <span class="cert__rule" data-line></span>
+              <div class="cert__grid">
+                <p class="cert__date">14 de maio de 2025</p>
+                <div>
+                  <h3 class="cert__title">Da Unisanta para o Mundo: Carreiras Internacionais em TI</h3>
+                  <p class="cert__issuer">Universidade Santa Cecília, 3 horas</p>
+                </div>
+                <div class="cert__actions">
+                  <a
+                    class="cert__link"
+                    href="assets/certificados/certificado-unisanta-carreiras-internacionais.jpg"
+                    data-viewer="image"
+                    data-title="Da Unisanta para o Mundo: Carreiras Internacionais em TI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Ver certificado</a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ Formação ============ -->
+      <section id="formacao" class="section" data-theme="ice" data-depth aria-labelledby="formacao-titulo">
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="formacao-titulo" class="section-head__title" data-split>Formação</h2>
+          </header>
+
+          <span class="edu__rule" data-line></span>
+          <div class="edu">
+            <h3 class="edu__course">Análise e Desenvolvimento de Sistemas</h3>
+            <div>
+              <ul class="edu__meta">
+                <li>Graduação tecnológica</li>
+                <li>Em andamento</li>
+                <li>Fevereiro de 2025 a julho de 2027</li>
+              </ul>
+              <p class="edu__institution">Universidade Santa Cecília</p>
+              <p class="edu__desc">
+                Formação voltada a programação, banco de dados, análise de sistemas e desenvolvimento de aplicações.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Experiência ============ -->
+      <section id="experiencia" class="section" data-theme="ink" data-depth aria-labelledby="experiencia-titulo">
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="experiencia-titulo" class="section-head__title" data-split>Experiência</h2>
+            <p class="section-head__lead">Onde já atuei e o que fiz em cada lugar.</p>
+          </header>
+
+          <ul class="exp">
+            <li class="exp__item">
+              <span class="exp__rule" data-line></span>
+              <div class="exp__grid">
+                <p class="exp__period">Desde setembro de 2025</p>
+                <div>
+                  <h3 class="exp__role">Auxiliar administrativo</h3>
+                  <p class="exp__company">MediSocial, Santos</p>
+                  <ul class="exp__bullets">
+                    <li>Uso do sistema SOC para cadastro, atualização e consulta de dados.</li>
+                    <li>Emissão de relatórios e organização de informações administrativas.</li>
+                    <li>Suporte às rotinas da equipe, garantindo agilidade nos processos internos.</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="exp__item">
+              <span class="exp__rule" data-line></span>
+              <div class="exp__grid">
+                <p class="exp__period">Janeiro a setembro de 2025</p>
+                <div>
+                  <h3 class="exp__role">Auxiliar administrativo (Jovem Aprendiz)</h3>
+                  <p class="exp__company">Lar das Moças Cegas</p>
+                  <ul class="exp__bullets">
+                    <li>Organização e digitalização de documentos, contribuindo para a gestão da informação.</li>
+                    <li>Apoio ao fluxo interno de processos, ao atendimento e à equipe.</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ Minha Jornada (fixa na tela enquanto rola, em telas largas) ============ -->
+      <section
+        id="jornada"
+        class="section journey-section"
+        data-theme="blue"
+        data-prefer="blue"
+        aria-labelledby="jornada-titulo"
+      >
+        <div class="section__inner container">
+          <div class="journey">
+            <div class="journey__stage">
+              <header class="section-head">
+                <h2 id="jornada-titulo" class="section-head__title" data-split>Minha Jornada</h2>
+                <p class="section-head__lead">Onde estou e para onde quero ir.</p>
+              </header>
+
+              <div class="journey__cols">
+                <div class="journey__now">
+                  <h3 class="journey__title">Onde estou</h3>
+                  <ul>
+                    <li>Cursando Análise e Desenvolvimento de Sistemas na Universidade Santa Cecília</li>
+                    <li>Auxiliar administrativo na MediSocial, em Santos, desde setembro de 2025</li>
+                    <li>Projetos em desenvolvimento</li>
+                  </ul>
+                </div>
+
+                <span class="journey__line" aria-hidden="true"></span>
+
+                <div class="journey__next">
+                  <h3 class="journey__title journey__next-title">Para onde quero ir</h3>
+                  <ul>
+                    <li>Atuar na área de tecnologia, com foco em desenvolvimento, análise ou suporte técnico</li>
+                    <li>Transformar ideias em projetos funcionais</li>
+                    <li>Evoluir todos os dias com tecnologia</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Currículos ============ -->
+      <section id="curriculo" class="section" data-theme="ice" data-depth aria-labelledby="curriculo-titulo">
+        <div class="section__inner container">
+          <header class="section-head">
+            <h2 id="curriculo-titulo" class="section-head__title" data-split>Currículos</h2>
+            <!-- TODO: texto de apoio aproximado; troque pelo original. -->
+            <p class="section-head__lead">Escolha a versão mais adequada para a vaga.</p>
+          </header>
+
+          <ul class="resumes">
+            <li>
+              <div class="spot resume">
+                <h3 class="resume__title">Currículo em português</h3>
+                <p class="resume__desc">Versão em português, em PDF.</p>
+                <div class="resume__actions">
+                  <span class="btn-magnet">
+                    <a class="btn btn--solid btn--sm" href="assets/curriculos/curriculo-felipe-passos.pdf" data-viewer="pdf" data-title="Currículo em português" target="_blank" rel="noopener noreferrer">Visualizar</a>
+                  </span>
+                  <span class="btn-magnet">
+                    <a class="btn btn--ghost btn--sm" href="assets/curriculos/curriculo-felipe-passos.pdf" download>Baixar PDF</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="spot resume">
+                <h3 class="resume__title">Resume in English</h3>
+                <p class="resume__desc">Versão em inglês, em PDF.</p>
+                <div class="resume__actions">
+                  <span class="btn-magnet">
+                    <a class="btn btn--solid btn--sm" href="assets/curriculos/curriculo-felipe-passos-english.pdf" data-viewer="pdf" data-title="Resume in English" target="_blank" rel="noopener noreferrer">Visualizar</a>
+                  </span>
+                  <span class="btn-magnet">
+                    <a class="btn btn--ghost btn--sm" href="assets/curriculos/curriculo-felipe-passos-english.pdf" download>Baixar PDF</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ Contato ============ -->
+      <section id="contato" class="section" data-theme="blue" data-prefer="blue" aria-labelledby="contato-titulo">
+        <div class="section__inner container">
+          <div class="contact">
+            <div class="contact__intro">
+              <h2 id="contato-titulo" class="contact__title" data-split>Vamos conversar?</h2>
+              <p class="contact__lead contact__fade">
+                Estou sempre aberto a novas oportunidades, projetos e conexões na área de tecnologia.
+              </p>
+              <!-- Preenchida por js/config.js (e-mail, GitHub e LinkedIn). -->
+              <ul class="contact__links contact__fade" data-social aria-label="Outras formas de contato"></ul>
+            </div>
+
+            <div class="contact__form contact__fade">
+              <!--
+                O Netlify Forms detecta este formulário (data-netlify) no deploy.
+                O js/contact.js envia por fetch, valida e mostra o retorno na tela.
+              -->
+              <form
+                id="form-contato"
+                class="cf"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                novalidate
+              >
+                <input type="hidden" name="form-name" value="contact" />
+
+                <div class="cf__field">
+                  <label for="cf-nome">Nome</label>
+                  <input id="cf-nome" type="text" name="nome" autocomplete="name" aria-describedby="cf-nome-erro" />
+                  <p class="cf__error" id="cf-nome-erro" hidden></p>
+                </div>
+
+                <div class="cf__field">
+                  <label for="cf-email">E-mail</label>
+                  <input
+                    id="cf-email"
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                    inputmode="email"
+                    aria-describedby="cf-email-erro"
+                  />
+                  <p class="cf__error" id="cf-email-erro" hidden></p>
+                </div>
+
+                <div class="cf__field cf__field--wide">
+                  <label for="cf-assunto">Assunto</label>
+                  <input id="cf-assunto" type="text" name="assunto" aria-describedby="cf-assunto-erro" />
+                  <p class="cf__error" id="cf-assunto-erro" hidden></p>
+                </div>
+
+                <div class="cf__field cf__field--wide">
+                  <label for="cf-mensagem">Mensagem</label>
+                  <textarea
+                    id="cf-mensagem"
+                    name="mensagem"
+                    rows="6"
+                    maxlength="2200"
+                    aria-describedby="cf-mensagem-erro"
+                  ></textarea>
+                  <p class="cf__count" id="cf-contador">0 / 2000</p>
+                  <p class="cf__error" id="cf-mensagem-erro" hidden></p>
+                </div>
+
+                <!-- Campo armadilha contra robôs: invisível e fora da ordem de tabulação. -->
+                <div class="cf__trap" aria-hidden="true">
+                  <label for="cf-bot">Não preencha este campo</label>
+                  <input id="cf-bot" type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <div class="cf__actions cf__field--wide">
+                  <span class="btn-magnet">
+                    <button class="btn btn--solid btn--md" type="submit" id="cf-enviar">Enviar mensagem</button>
+                  </span>
+                  <div class="cf__feedback" id="cf-feedback" role="alert" aria-live="assertive"></div>
+                </div>
+              </form>
+
+              <div class="cf cf--done" id="cf-sucesso" role="status" hidden>
+                <h3 class="cf__done-title">Mensagem enviada</h3>
+                <p class="cf__done-text">Recebi sua mensagem e vou responder assim que possível.</p>
+                <span class="btn-magnet">
+                  <button class="btn btn--ghost btn--sm" type="button" id="cf-outra">Enviar outra mensagem</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ Visualizador (certificados e currículos) ============ -->
+    <dialog id="visualizador" class="viewer" aria-labelledby="visualizador-titulo">
+      <div class="viewer__bar">
+        <h2 class="viewer__title" id="visualizador-titulo"></h2>
+        <div class="viewer__actions">
+          <a class="viewer__action" id="visualizador-nova" href="#" target="_blank" rel="noopener noreferrer">Abrir em nova aba</a>
+          <a class="viewer__action" id="visualizador-baixar" href="#" download>Baixar</a>
+          <button class="viewer__close" type="button" id="visualizador-fechar" aria-label="Fechar visualização">
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+      </div>
+      <div class="viewer__body" id="visualizador-corpo" data-lenis-prevent></div>
+    </dialog>
+
+    <!-- ============ Rodapé ============ -->
+    <footer class="footer section" data-theme="ink">
+      <div class="container footer__inner">
+        <div class="footer__id">
+          <p class="footer__name">Felipe Passos</p>
+          <p class="footer__role">Desenvolvedor em Formação</p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Navegação do rodapé">
+          <ul id="nav-rodape"></ul>
+        </nav>
+
+        <ul class="footer__social" data-social aria-label="Redes e contato"></ul>
+
+        <div class="footer__bottom">
+          <p>Desenvolvido por Felipe Passos © <span data-year>2026</span></p>
+          <button type="button" class="footer__top" id="voltar-topo">Voltar ao topo</button>
+        </div>
+      </div>
+    </footer>
+
+    <noscript>
+      <style>
+        .hdr__toggle { display: none; }
+      </style>
+    </noscript>
+  </body>
+</html>

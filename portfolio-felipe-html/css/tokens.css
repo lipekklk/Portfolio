@@ -1,0 +1,51 @@
+:root {
+  /* Paleta base */
+  --blue: #2a33f5; /* cobalto */
+  --ink: #0d1030; /* índigo profundo */
+  --ice: #ecefff; /* gelo */
+  --magenta: #e0207f;
+  --pink: #ff6bb5;
+  --butter: #ffe27a;
+
+  /* Tipografia */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI Variable Display', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --maxw: 1320px;
+  --sheet: clamp(1.75rem, 4.5vw, 3.75rem);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+/* Temas por seção: cada <section data-theme> redefine as cores semânticas. */
+[data-theme='blue'] {
+  --bg: var(--blue);
+  --fg: var(--ice);
+  --muted: rgb(236 239 255 / 0.82);
+  --line: rgb(236 239 255 / 0.3);
+  --surface: rgb(255 255 255 / 0.1);
+  --accent: var(--butter);
+  --danger: #ffc2cc;
+}
+
+[data-theme='ice'] {
+  --bg: var(--ice);
+  --fg: var(--ink);
+  --muted: rgb(13 16 48 / 0.72);
+  --line: rgb(13 16 48 / 0.18);
+  --surface: rgb(42 51 245 / 0.06);
+  --accent: var(--magenta);
+  --danger: #b3122c;
+}
+
+[data-theme='ink'] {
+  --bg: var(--ink);
+  --fg: var(--ice);
+  --muted: rgb(236 239 255 / 0.74);
+  --line: rgb(236 239 255 / 0.2);
+  --surface: rgb(255 255 255 / 0.06);
+  --accent: var(--pink);
+  --danger: #ff9aa8;
+}

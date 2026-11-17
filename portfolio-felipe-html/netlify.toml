@@ -1,0 +1,8 @@
+# Site estático: não há build. A pasta raiz é publicada como está.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
