@@ -39,6 +39,11 @@ window.SITE_CONFIG = {
       repo: 'https://github.com/lipekklk/TreinoMedicinaOcupacional',
       tags: [],
     },
+    tceg: {
+      demo: 'https://www.tceg.com.br/',
+      repo: '', // sem repositório informado
+      tags: [],
+    },
     portfolio: {
       demo: 'https://curriculofelipepassos.netlify.app',
       repo: 'https://github.com/lipekklk/Portfolio',
