@@ -41,7 +41,7 @@ window.SITE_CONFIG = {
     },
     tceg: {
       demo: 'https://www.tceg.com.br/',
-      repo: '', // sem repositório informado
+      repo: 'https://github.com/lipekklk/tceg-gestao',
       tags: [],
     },
     portfolio: {
